@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 
 import Loader from '../Loader';
 
+import UsersTable from './UsersTable';
+
 class Users extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { fetchUsers, users: { payload } } = this.props;
     if (!payload.length) fetchUsers();
   }
@@ -20,31 +22,7 @@ class Users extends React.Component {
         <h1>Users</h1>
         { fetching && <Loader /> }
         { error && 'There was an error' }
-        <table border={1} cellPadding={10}>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Email</th>
-              <th>Gender</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              !!payload.length &&
-              payload.map(item => (
-                <tr key={item.id}>
-                  <td>{item.id}</td>
-                  <td>{item.first_name}</td>
-                  <td>{item.last_name}</td>
-                  <td>{item.email}</td>
-                  <td>{item.gender}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+        <UsersTable users={payload} />
       </div>
     );
   }
