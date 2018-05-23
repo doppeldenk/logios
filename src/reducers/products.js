@@ -7,25 +7,23 @@ import { defaultState } from '../constants';
 
 const initialState = { ...defaultState, payload: [] };
 
-export default (currentState, action) => {
+export default (state = initialState, action) => {
   const { payload } = action;
-  let state = { ...initialState, ...currentState };
+  const newState = { ...state };
   switch (action.type) {
     case FETCH_PRODUCTS:
-      state.fetching = true;
+      newState.fetching = true;
       break;
     case FETCH_PRODUCTS_FULFILLED:
-      state.fetching = false;
-      state.fetched = true;
-      state.payload = payload;
+      newState.fetching = false;
+      newState.fetched = true;
+      newState.payload = payload;
       break;
     case FETCH_PRODUCTS_REJECTED:
-      state.fetching = false;
-      state.error = payload;
+      newState.fetching = false;
+      newState.error = payload;
       break;
-    default:
-      state = currentState;
-      break;
+    default: break;
   }
-  return state;
+  return newState;
 };

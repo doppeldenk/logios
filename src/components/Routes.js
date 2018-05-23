@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Dashboard from './Dashboard';
 import Login from './Login';
-import Products from './Products';
+import Products from '../containers/ProductsContainer';
 
 const Routes = () => (
   <Switch>
