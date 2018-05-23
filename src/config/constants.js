@@ -1,7 +1,8 @@
-export const apiURL = 'http://dev.logios-api.com';
+export const apiURL = 'https://my.api.mockaroo.com';
 
 export const defaultState = {
   fetching: false,
   fetched: false,
   error: null,
+  payload: [],
 };

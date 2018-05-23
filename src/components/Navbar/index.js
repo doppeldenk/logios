@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const navbar = [
-  { name: 'Inicio', link: 'dashboard' },
-  { name: 'Artículos', link: 'products' },
+  { name: 'Dashboard', link: 'dashboard' },
+  { name: 'Users', link: 'users' },
 ];
 
 const Navbar = () => (

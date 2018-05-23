@@ -9,8 +9,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+
 // hot reload for development
 import { AppContainer } from 'react-hot-loader';
+
+import './config/interceptors';
 
 import App from './components/App';
 import store from './store';
